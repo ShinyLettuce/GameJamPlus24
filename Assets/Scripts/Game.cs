@@ -12,16 +12,25 @@ public class Game : MonoBehaviour
     Player player;
 
     [SerializeField]
-    GameObject actor;
+    Actor[] actors;
 
     [SerializeField]
     TextMeshProUGUI scoreText;
 
     int score;
 
+    void UpdateActors()
+    {
+        foreach (var actor in actors)
+        {
+            actor.ActorUpdate();
+        }
+    }
+
     private void Update()
     {
         player.PlayerUpdate();
+        UpdateActors();
         if(audience.seesMistake)
         {
             score++;
@@ -33,7 +42,7 @@ public class Game : MonoBehaviour
     void FixedUpdate()
     {
         player.PlayerPhysicsUpdate();
-        audience.AudiencePhysicsUpdate();
+        audience.AudiencePhysicsUpdate(actors);
     }
 }
 
