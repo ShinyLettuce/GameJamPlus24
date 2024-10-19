@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActorBehaviour : MonoBehaviour
+public class Actor : MonoBehaviour
 {
     [SerializeField]
     Material normal, failing, exposed;
 
-    enum ActorState
+    public enum ActorState
     {
         NORMAL,
         FAILING,
@@ -15,16 +15,16 @@ public class ActorBehaviour : MonoBehaviour
     }
 
     [SerializeField]
-    ActorState state = ActorState.NORMAL;
+    public ActorState state = ActorState.NORMAL;
 
     SpriteRenderer spriteRenderer;
 
-    void Start()
+    void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
+    public void ActorUpdate()
     {
         switch(state)
         {
