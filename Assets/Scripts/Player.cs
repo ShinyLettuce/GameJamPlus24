@@ -10,10 +10,12 @@ public class Player : MonoBehaviour
     Vector2 moveInput;
 
     Rigidbody rb;
+    Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     public void PlayerUpdate()
@@ -25,6 +27,17 @@ public class Player : MonoBehaviour
     {
         moveInput.y = Input.GetAxis("Vertical");
         moveInput.x = Input.GetAxis("Horizontal");
+
+        if(moveInput.magnitude > 0f)
+        {
+            animator.SetBool("IsWalking", true);
+            Debug.Log("wLAKIN");
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
+            Debug.Log("NOT wLAKIN");
+        }
     }
 
     public void PlayerPhysicsUpdate()
