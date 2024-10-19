@@ -5,11 +5,12 @@ using UnityEngine;
 public class Actor : MonoBehaviour
 {
     [SerializeField]
-    Material normal, failing, exposed;
+    Material normal, wobbly, failing, exposed;
 
     public enum ActorState
     {
         NORMAL,
+        WOBBLY,
         FAILING,
         EXPOSED
     }
@@ -46,6 +47,11 @@ public class Actor : MonoBehaviour
                 NormalToFailCounter(ref affectedActors);
                 break;
 
+            case ActorState.WOBBLY:
+                spriteRenderer.material = wobbly;
+                FailToExposedCounter();
+                break;
+
             case ActorState.FAILING:
                 spriteRenderer.material = failing;
                 FailToExposedCounter();
@@ -70,7 +76,14 @@ public class Actor : MonoBehaviour
             normalCounter = 0;
             return;
         }
-        state = ActorState.FAILING;
+        if (Random.Range(0f, 1f) < 0.5f)
+        {
+            state = ActorState.FAILING;
+        }
+        else
+        {
+            state = ActorState.WOBBLY;
+        }
         affectedActors++;
         normalCounter = 0f;
     }
