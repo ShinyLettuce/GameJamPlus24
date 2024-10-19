@@ -17,9 +17,8 @@ public class Audience : MonoBehaviour
             {
                 continue;
             }
-            RaycastHit hit;
             Vector3 direction = actor.transform.position - transform.position;
-            if (!Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, layerMask))
+            if (!Physics.Raycast(transform.position, direction, out RaycastHit hit, Mathf.Infinity, layerMask))
             {
                 Debug.Log("I See You!");
                 seesMistake = true;

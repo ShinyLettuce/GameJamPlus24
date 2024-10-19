@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -19,11 +17,24 @@ public class Game : MonoBehaviour
 
     int score;
 
+    [SerializeField, Min(1)]
+    int maxAffectedActors;
+
+    int affectedActors = 0;
+
     void UpdateActors()
     {
+        affectedActors = 0;
         foreach (var actor in actors)
         {
-            actor.ActorUpdate();
+            if (actor.state != Actor.ActorState.NORMAL)
+            {
+                affectedActors++;
+            }
+        }
+        foreach (var actor in actors)
+        {
+            actor.ActorUpdate(ref affectedActors, ref maxAffectedActors);
         }
     }
 
