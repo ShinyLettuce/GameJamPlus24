@@ -138,7 +138,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1585427532386992573, guid: bd482885b598e994eb686111a8dc3fff, type: 3}
   m_PrefabInstance: {fileID: 6723616741573304245}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1026094374}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c0b88617fedd564088e35e0ab01cc7d, type: 3}
@@ -602,6 +602,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 18.671, y: 0, z: 0}
+--- !u!1 &1026094374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4254496887026021336, guid: bd482885b598e994eb686111a8dc3fff, type: 3}
+  m_PrefabInstance: {fileID: 6723616741573304245}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1026094379
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026094374}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cf2e5ce9fc894984e882ba9ccc1364b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1029532026 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3346263093602564777, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
@@ -1851,7 +1877,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4254496887026021336, guid: bd482885b598e994eb686111a8dc3fff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1026094379}
   m_SourcePrefab: {fileID: 100100000, guid: bd482885b598e994eb686111a8dc3fff, type: 3}
 --- !u!1001 &7130470057665812278
 PrefabInstance:
