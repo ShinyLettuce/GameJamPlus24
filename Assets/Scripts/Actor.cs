@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Actor : MonoBehaviour
@@ -19,7 +20,7 @@ public class Actor : MonoBehaviour
 
     SpriteRenderer spriteRenderer;
 
-    float failingCounter = 0f, exposedCounter = 0f, normalCounter;
+    float failingCounter = 0f, exposedCounter = 0f, normalCounter = 0f;
 
     [SerializeField, Min(1f)]
     float failingTime = 5f, exposedTime = 5f, normalTime = 4f;
@@ -27,13 +28,41 @@ public class Actor : MonoBehaviour
     [SerializeField, Range(0f, 1f)]
     float failingChance = 0.20f;
 
+    bool playerNearActor = false;
+
+    public void SetActorState(Actor.ActorState newState)
+    {
+        state = newState;
+        failingCounter = 0f;
+        exposedCounter = 0f;
+        normalCounter = 0f;
+    }
+    public bool PlayerNearActor() => playerNearActor;
+
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            playerNearActor = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerNearActor = false;
+        }
+    }
+
     public void ActorUpdate(ref int affectedActors, ref int maxAffectedActors)
     {
+        
         switch(state)
         {
             case ActorState.NORMAL:
