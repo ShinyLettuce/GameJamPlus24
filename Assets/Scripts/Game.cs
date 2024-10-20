@@ -32,6 +32,10 @@ public class Game : MonoBehaviour
 
     bool playerHasScript = false;
 
+    bool seesMistake = false;
+    
+    int mistakeCount = 0;
+
     void UpdateActors()
     {
         affectedActors = 0;
@@ -73,9 +77,9 @@ public class Game : MonoBehaviour
 
         player.PlayerUpdate();
         UpdateActors();
-        if(audience.seesMistake)
+        if(mistakeCount > 0)
         {
-            score++;
+            score += mistakeCount;
         }
 
         scoreText.SetText("Score: {0}", score);
@@ -84,7 +88,16 @@ public class Game : MonoBehaviour
     void FixedUpdate()
     {
         player.PlayerPhysicsUpdate();
-        audience.AudiencePhysicsUpdate(actors);
+        mistakeCount = 0;
+        foreach (var actor in actors)
+        {
+            seesMistake = false;
+            seesMistake = audience.AudienceSeesMistake(actor);
+            if(seesMistake)
+            {
+                mistakeCount++;
+            }
+        }
     }
 }
 
