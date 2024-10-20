@@ -6,7 +6,7 @@ using UnityEngine;
 public class Actor : MonoBehaviour
 {
     [SerializeField]
-    Material normal, wobbly, failing, exposed;
+    Texture2D idle, cringe;
 
     [SerializeField]
     GameObject waterSign;
@@ -14,6 +14,8 @@ public class Actor : MonoBehaviour
     [SerializeField]
     GameObject scriptSign;
 
+    Sprite idleSprite;
+    Sprite cringeSprite;
     public enum ActorState
     {
         NORMAL,
@@ -45,9 +47,11 @@ public class Actor : MonoBehaviour
     }
     public bool PlayerNearActor() => playerNearActor;
 
-    void Awake()
+    void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        idleSprite = Sprite.Create(idle, new Rect(0, 0, 256, 256), new Vector2(0.5f, 0.5f), 256f);
+        cringeSprite = Sprite.Create(cringe, new Rect(0, 0, 256, 256), new Vector2(0.5f, 0.5f), 256f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -96,25 +100,23 @@ public class Actor : MonoBehaviour
         switch(state)
         {
             case ActorState.NORMAL:
-                spriteRenderer.material = normal;
+                spriteRenderer.sprite = idleSprite;
                 scriptSign.SetActive(false);
                 waterSign.SetActive(false);
                 break;
 
             case ActorState.WOBBLY:
-                spriteRenderer.material = wobbly;
                 waterSign.SetActive(true);
                 scriptSign.SetActive(false);
                 break;
 
             case ActorState.FAILING:
-                spriteRenderer.material = failing;
                 scriptSign.SetActive(true);
                 waterSign.SetActive(false);
                 break;
 
             case ActorState.EXPOSED:
-                spriteRenderer.material = exposed;
+                spriteRenderer.sprite = cringeSprite;
                 scriptSign.SetActive(false);
                 waterSign.SetActive(false);
                 break;

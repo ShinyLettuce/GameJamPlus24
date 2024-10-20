@@ -883,6 +883,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Actor (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6557586058238802813, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 2800000, guid: 08371c9318e9d014a8f67d815cb0fc4c, type: 3}
+    - target: {fileID: 6557586058238802813, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
+      propertyPath: cringe
+      value: 
+      objectReference: {fileID: 2800000, guid: 58aefdd0381c6314fbda298e2c4f610e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1431,7 +1439,7 @@ Transform:
   m_GameObject: {fileID: 513345342}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.540717, y: -4.6471653, z: 10.59687}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3181,6 +3189,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Actor (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6557586058238802813, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 2800000, guid: 2337fd4f0ced1544d883b2508db6ab9b, type: 3}
+    - target: {fileID: 6557586058238802813, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
+      propertyPath: cringe
+      value: 
+      objectReference: {fileID: 2800000, guid: 712758aa35a240440bc1788a803471fd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3767,6 +3783,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Actor (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6557586058238802813, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 2800000, guid: 10cedf4c985a5974ebae368d7b1856bd, type: 3}
+    - target: {fileID: 6557586058238802813, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
+      propertyPath: cringe
+      value: 
+      objectReference: {fileID: 2800000, guid: f451cef5239cc224cb563d79a76306bb, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3916,6 +3940,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1635414040}
     m_Modifications:
+    - target: {fileID: 2147209843689778072, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d7418bd037119143aa4be488107bf63, type: 3}
     - target: {fileID: 3346263093602564777, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.03
@@ -3960,6 +3988,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Actor (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6557586058238802813, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 2800000, guid: 7d7418bd037119143aa4be488107bf63, type: 3}
+    - target: {fileID: 6557586058238802813, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
+      propertyPath: cringe
+      value: 
+      objectReference: {fileID: 2800000, guid: b24760fda014d7a4382d4fc8734c582e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5138,6 +5174,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2147209843689778072, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c6aa42f5d7df6b748b4efb623c24118a, type: 3}
     - target: {fileID: 3346263093602564777, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.26
@@ -5182,6 +5222,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Actor
       objectReference: {fileID: 0}
+    - target: {fileID: 6557586058238802813, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
+      propertyPath: idle
+      value: 
+      objectReference: {fileID: 2800000, guid: c6aa42f5d7df6b748b4efb623c24118a, type: 3}
+    - target: {fileID: 6557586058238802813, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
+      propertyPath: cringe
+      value: 
+      objectReference: {fileID: 2800000, guid: a5b981702737987409f94fb1ba56c0fc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
