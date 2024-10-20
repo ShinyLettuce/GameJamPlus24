@@ -7,6 +7,12 @@ public class Player : MonoBehaviour
     [SerializeField, Min(1f)]
     float movementSpeed = 2f;
 
+    [SerializeField]
+    GameObject waterSign;
+
+    [SerializeField]
+    GameObject scriptSign;
+
     Vector2 moveInput;
 
     Rigidbody rb;
@@ -43,5 +49,11 @@ public class Player : MonoBehaviour
     public void PlayerPhysicsUpdate()
     {
         rb.velocity = new Vector3(moveInput.x * movementSpeed, 0, moveInput.y * movementSpeed);
+    }
+
+    public void PlayerRender(bool hasWater, bool hasScript)
+    {
+        waterSign.SetActive(hasWater);
+        scriptSign.SetActive(hasScript);
     }
 }

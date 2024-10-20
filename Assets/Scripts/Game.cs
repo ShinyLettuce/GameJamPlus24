@@ -21,7 +21,7 @@ public class Game : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI scoreText;
 
-    int score;
+    float score = 50;
 
     [SerializeField, Min(1)]
     int maxAffectedActors;
@@ -34,7 +34,7 @@ public class Game : MonoBehaviour
 
     bool seesMistake = false;
     
-    int mistakeCount = 0;
+    float mistakeCount = 0f;
 
     void UpdateActors()
     {
@@ -77,18 +77,23 @@ public class Game : MonoBehaviour
 
         player.PlayerUpdate();
         UpdateActors();
-        if(mistakeCount > 0)
+        if(mistakeCount > 0f && score > 0)
         {
-            score += mistakeCount;
+            score -= mistakeCount * Time.deltaTime;
+        }
+        else if(mistakeCount == 0f && score < 100f)
+        {
+            score += 0.5f * Time.deltaTime;
         }
 
-        scoreText.SetText("Score: {0}", score);
+        player.PlayerRender(playerHasWater, playerHasScript);
+        scoreText.SetText("Score: {0}", Mathf.Round(score));
     }
 
     void FixedUpdate()
     {
         player.PlayerPhysicsUpdate();
-        mistakeCount = 0;
+        mistakeCount = 0f;
         foreach (var actor in actors)
         {
             seesMistake = false;
