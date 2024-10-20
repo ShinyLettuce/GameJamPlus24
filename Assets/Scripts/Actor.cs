@@ -141,6 +141,7 @@ public class Actor : MonoBehaviour
         {
             state = ActorState.WOBBLY;
         }
+        SoundManager.PlaySound(SoundType.HELP);
         affectedActors++;
         normalCounter = 0f;
     }
