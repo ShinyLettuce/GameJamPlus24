@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class Game : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI scoreText;
+
+    [SerializeField]
+    Slider scoreSlider;
 
     float score = 50;
 
@@ -85,6 +89,7 @@ public class Game : MonoBehaviour
         {
             score += 0.5f * Time.deltaTime;
         }
+        scoreSlider.value = score;
 
         player.PlayerRender(playerHasWater, playerHasScript);
         foreach (var actor in actors)
