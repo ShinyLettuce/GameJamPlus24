@@ -218,7 +218,7 @@ MonoBehaviour:
   failingTime: 7
   exposedTime: 5
   normalTime: 3
-  failingChance: 0.1
+  failingChance: 0.25
 --- !u!54 &-795090879606508521
 Rigidbody:
   m_ObjectHideFlags: 0

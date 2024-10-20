@@ -74,37 +74,41 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
-        if (waterBooth.WaterGrabable())
+        if(!timer.TimeUp())
         {
-            playerHasWater = true;
-            playerHasScript = false;
-        }
-        if (scriptBooth.ScriptGrabable())
-        {
-            playerHasWater = false;
-            playerHasScript = true;
-        }
+            if (waterBooth.WaterGrabable())
+            {
+                playerHasWater = true;
+                playerHasScript = false;
+            }
+            if (scriptBooth.ScriptGrabable())
+            {
+                playerHasWater = false;
+                playerHasScript = true;
+            }
 
-        player.PlayerUpdate();
-        UpdateActors();
-        if(mistakeCount > 0f && score > 0)
-        {
-            score -= mistakeCount * Time.deltaTime;
-        }
-        else if(mistakeCount == 0f && score < 100f)
-        {
-            score += 0.5f * Time.deltaTime;
-        }
-        scoreSlider.value = score;
+            player.PlayerUpdate();
+            UpdateActors();
+            if(mistakeCount > 0f && score > 0)
+            {
+                score -= mistakeCount * Time.deltaTime;
+            }
+            else if(mistakeCount == 0f && score < 100f)
+            {
+                score += 0.5f * Time.deltaTime;
+            }
+            scoreSlider.value = score;
 
-        player.PlayerRender(playerHasWater, playerHasScript);
-        foreach (var actor in actors)
-        {
-            actor.ActorRender();
-        }
-        scoreText.SetText("Score: {0}", Mathf.Round(score));
+            player.PlayerRender(playerHasWater, playerHasScript);
+            foreach (var actor in actors)
+            {
+                actor.ActorRender();
+            }
+            scoreText.SetText("Score: {0}", Mathf.Round(score));
 
-        if(timer.TimeUp())
+
+        }
+        else if(timer.TimeUp())
         {
             endwidget.SetActive(true);
             if (score >= 50)
@@ -120,15 +124,18 @@ public class Game : MonoBehaviour
 
     void FixedUpdate()
     {
-        player.PlayerPhysicsUpdate();
-        mistakeCount = 0f;
-        foreach (var actor in actors)
+        if (!timer.TimeUp())
         {
-            seesMistake = false;
-            seesMistake = audience.AudienceSeesMistake(actor);
-            if(seesMistake)
+            player.PlayerPhysicsUpdate();
+            mistakeCount = 0f;
+            foreach (var actor in actors)
             {
-                mistakeCount++;
+                seesMistake = false;
+                seesMistake = audience.AudienceSeesMistake(actor);
+                if (seesMistake)
+                {
+                    mistakeCount++;
+                }
             }
         }
     }

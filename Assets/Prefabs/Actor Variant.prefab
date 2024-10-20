@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: cringe
       value: 
       objectReference: {fileID: 2800000, guid: a5b981702737987409f94fb1ba56c0fc, type: 3}
+    - target: {fileID: 7867922888768908425, guid: ea2ae2bf10abe1747878fec10391e68a, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

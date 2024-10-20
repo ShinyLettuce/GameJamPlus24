@@ -18,6 +18,6 @@ public class MainMenu : MonoBehaviour {
 
     public void Restart()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Menu");
     }
 }
