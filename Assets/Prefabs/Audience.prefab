@@ -96,7 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2a99dbb456453e45a368b7071aed8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actorRef: {fileID: 0}
   seesMistake: 0
   layerMask:
     serializedVersion: 2

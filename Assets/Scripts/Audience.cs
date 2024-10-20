@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class Audience : MonoBehaviour
@@ -7,7 +8,6 @@ public class Audience : MonoBehaviour
 
     [SerializeField]
     LayerMask layerMask;
-
     public void AudiencePhysicsUpdate(Actor[] actors)
     {
         seesMistake = false;
@@ -17,8 +17,8 @@ public class Audience : MonoBehaviour
             {
                 continue;
             }
-            Vector3 direction = actor.transform.position - transform.position;
-            if (!Physics.Raycast(transform.position, direction, out RaycastHit hit, Mathf.Infinity, layerMask))
+            Vector3 direction = transform.position - actor.transform.position;
+            if (!Physics.Raycast(actor.transform.position, direction, out RaycastHit hit, Mathf.Infinity, layerMask))
             {
                 Debug.Log("I See You!");
                 seesMistake = true;

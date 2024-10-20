@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -795090879606508521}
   - component: {fileID: 7867922888768908425}
   - component: {fileID: 8812567924451788098}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Actor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
