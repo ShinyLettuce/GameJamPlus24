@@ -87,6 +87,10 @@ public class Game : MonoBehaviour
         }
 
         player.PlayerRender(playerHasWater, playerHasScript);
+        foreach (var actor in actors)
+        {
+            actor.ActorRender();
+        }
         scoreText.SetText("Score: {0}", Mathf.Round(score));
     }
 

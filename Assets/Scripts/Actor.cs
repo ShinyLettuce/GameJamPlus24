@@ -8,6 +8,12 @@ public class Actor : MonoBehaviour
     [SerializeField]
     Material normal, wobbly, failing, exposed;
 
+    [SerializeField]
+    GameObject waterSign;
+
+    [SerializeField]
+    GameObject scriptSign;
+
     public enum ActorState
     {
         NORMAL,
@@ -62,11 +68,9 @@ public class Actor : MonoBehaviour
 
     public void ActorUpdate(ref int affectedActors, ref int maxAffectedActors)
     {
-        
         switch(state)
         {
             case ActorState.NORMAL:
-                spriteRenderer.material = normal;
                 if(affectedActors >= maxAffectedActors)
                 {
                     normalCounter = 0;
@@ -75,20 +79,44 @@ public class Actor : MonoBehaviour
                 }
                 NormalToFailCounter(ref affectedActors);
                 break;
+            case ActorState.WOBBLY:
+                FailToExposedCounter();
+                break;
+            case ActorState.FAILING:
+                FailToExposedCounter();
+                break;
+            case ActorState.EXPOSED:
+                ExposedToNormalCounter();
+                break;
+        }
+    }
+
+    public void ActorRender()
+    {
+        switch(state)
+        {
+            case ActorState.NORMAL:
+                spriteRenderer.material = normal;
+                scriptSign.SetActive(false);
+                waterSign.SetActive(false);
+                break;
 
             case ActorState.WOBBLY:
                 spriteRenderer.material = wobbly;
-                FailToExposedCounter();
+                waterSign.SetActive(true);
+                scriptSign.SetActive(false);
                 break;
 
             case ActorState.FAILING:
                 spriteRenderer.material = failing;
-                FailToExposedCounter();
+                scriptSign.SetActive(true);
+                waterSign.SetActive(false);
                 break;
 
             case ActorState.EXPOSED:
                 spriteRenderer.material = exposed;
-                ExposedToNormalCounter();
+                scriptSign.SetActive(false);
+                waterSign.SetActive(false);
                 break;
         }
     }
