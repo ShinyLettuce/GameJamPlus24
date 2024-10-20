@@ -20,7 +20,13 @@ public class Game : MonoBehaviour
     Actor[] actors;
 
     [SerializeField]
-    TextMeshProUGUI scoreText;
+    TextMeshProUGUI scoreText, endtext;
+
+    [SerializeField]
+    GameObject endwidget;
+
+    [SerializeField]
+    Timer timer;
 
     [SerializeField]
     Slider scoreSlider;
@@ -97,6 +103,19 @@ public class Game : MonoBehaviour
             actor.ActorRender();
         }
         scoreText.SetText("Score: {0}", Mathf.Round(score));
+
+        if(timer.TimeUp())
+        {
+            endwidget.SetActive(true);
+            if (score >= 50)
+            {
+                endtext.SetText("The show was a success!");
+            }
+            else
+            {
+                endtext.SetText("The show was a failure...");
+            }
+        }
     }
 
     void FixedUpdate()
