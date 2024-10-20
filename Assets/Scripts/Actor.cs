@@ -9,10 +9,7 @@ public class Actor : MonoBehaviour
     Texture2D idle, cringe;
 
     [SerializeField]
-    GameObject waterSign;
-
-    [SerializeField]
-    GameObject scriptSign;
+    GameObject waterSign, scriptSign, exclamation;
 
     Sprite idleSprite;
     Sprite cringeSprite;
@@ -103,22 +100,26 @@ public class Actor : MonoBehaviour
                 spriteRenderer.sprite = idleSprite;
                 scriptSign.SetActive(false);
                 waterSign.SetActive(false);
+                exclamation.SetActive(false);
                 break;
 
             case ActorState.WOBBLY:
                 waterSign.SetActive(true);
                 scriptSign.SetActive(false);
+                exclamation.SetActive(false);
                 break;
 
             case ActorState.FAILING:
                 scriptSign.SetActive(true);
                 waterSign.SetActive(false);
+                exclamation.SetActive(false);
                 break;
 
             case ActorState.EXPOSED:
                 spriteRenderer.sprite = cringeSprite;
                 scriptSign.SetActive(false);
                 waterSign.SetActive(false);
+                exclamation.SetActive(true);
                 break;
         }
     }
