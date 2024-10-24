@@ -8,10 +8,7 @@ public class Player : MonoBehaviour
     float movementSpeed = 2f;
 
     [SerializeField]
-    GameObject waterSign;
-
-    [SerializeField]
-    GameObject scriptSign;
+    GameObject waterSign, scriptSign;
 
     Vector2 moveInput;
 

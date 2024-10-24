@@ -11,8 +11,7 @@ public class Actor : MonoBehaviour
     [SerializeField]
     GameObject waterSign, scriptSign, exclamation;
 
-    Sprite idleSprite;
-    Sprite cringeSprite;
+    Sprite idleSprite, cringeSprite;
     public enum ActorState
     {
         NORMAL,
